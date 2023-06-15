@@ -1,0 +1,28 @@
+CAPI=2:
+
+name : ::servant:1.2.0
+
+filesets:
+  rtl:
+    files:
+      - servant/servant_clock_gen.v
+      - servant/servant_timer.v
+      - servant/servant_gpio.v
+      - servant/servant_arbiter.v
+      - servant/servant_mux.v
+      - servant/servant_ram.v
+      - servant/servant.v
+    file_type : verilogSource
+    depend : [serv, "mdu? (mdu)"]
+
+targets:
+  default:
+    filesets : [rtl]
+
+    
+provider:
+  name : github
+  user : germancq
+  repo : serv
+  version : main     
+

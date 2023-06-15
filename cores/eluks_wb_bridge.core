@@ -1,0 +1,16 @@
+CAPI=1
+[main]
+description = "eluks bridge for WishBone core"
+
+depend =
+  register
+
+[verilog]
+src_files =
+  hdl/eluks_wb_bridge.sv
+
+[provider]
+name = github
+user = germancq
+repo = ELUKS
+version = master  
