@@ -1,0 +1,85 @@
+CAPI=2:
+
+name : ::IRIS_SERV:0
+description : RISC-V SERV CPU for the Digilent Arty development board with IRIS Secure Boot
+
+targets :
+  synth :
+
+    toplevel  : top
+
+    filesets  :
+      - rtl_top
+      - constraints_arty
+      - mem_files
+
+    default_tool : vivado
+
+    tools:
+      vivado:
+        part : xc7a35ticsg324-1L
+        BoardPart : digilentinc.com:arty:part0:1.1
+
+  arty :
+
+    toplevel  : top
+
+    filesets  :
+      - rtl_top
+      - constraints_arty
+      - mem_files
+
+    default_tool : vivado
+
+    tools:
+      vivado:
+        part : xc7a35ticsg324-1L
+        BoardPart : digilentinc.com:arty:part0:1.1
+
+  nexys :
+
+    toplevel  : top
+
+    filesets  :
+      - rtl_top
+      - constraints_nexys
+      - mem_files
+
+    default_tool : vivado
+
+    tools:
+      vivado:
+        part : xc7a100tcsg324-1
+
+filesets :
+  rtl_top :
+
+    depend :
+      - serv
+      - servant
+      - wb_eluks
+      - bootloaderModule
+      - seven_segments
+
+    file_type : systemVerilogSource
+
+    files :
+      - rtl/top.sv
+      - rtl/wb_arbiter.sv
+      - rtl/wishbone_if.sv
+
+  mem_files :
+    files :
+      - sw/blinky.hex : {copyto : blinky.hex}
+    file_type : user
+
+
+  constraints_arty :
+    file_type : xdc
+    files :
+      - data/arty.xdc
+
+  constraints_nexys :
+    file_type : xdc
+    files :
+      - data/Nexys4DDR_Master.xdc

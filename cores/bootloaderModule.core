@@ -1,0 +1,18 @@
+CAPI=1
+[main]
+description = "bootloaderModule core"
+
+depend =
+  counter
+  register
+  
+
+[verilog]
+src_files =
+  hdl/bootloaderModule.sv
+
+[provider]
+name = github
+user = germancq
+repo = ELUKS
+version = master  

@@ -1,0 +1,13 @@
+CAPI=1
+[main]
+description = "pulse_button"
+
+[verilog]
+src_files =
+  misc/pulse_button/hdl_code/pulse_button.v
+
+[provider] 
+name = github
+user = germancq
+repo = IPCores
+version = master
