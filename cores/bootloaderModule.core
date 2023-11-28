@@ -9,10 +9,10 @@ depend =
 
 [verilog]
 src_files =
-  hdl/bootloaderModule.sv
+  RISC-V/SERV/rtl/bootloaderModule.sv
 
 [provider]
 name = github
 user = germancq
-repo = ELUKS
+repo = IRIS-RV
 version = master  
